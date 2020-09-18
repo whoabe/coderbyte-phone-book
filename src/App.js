@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import PhoneBookForm from "./PhoneBookForm";
+import InformationTable from "./InformationTable";
 
 function App() {
+  const initialContacts = [
+    { firstName: "Coder", lastName: "Byte", phone: 8885559999, id: 0 },
+  ];
+  const [contacts, setContacts] = useState(initialContacts);
+
+  const addContact = (contact) => {
+    contact.id = contacts.length + 1;
+    setContacts([...contacts, contact]);
+  };
+
+  const sortedContacts = (contacts) => {
+    return contacts.sort(function (a, b) {
+      if (a.lastName.toLowerCase() < b.lastName.toLowerCase()) {
+        console.log("-1");
+        return -1;
+      }
+      if (a.lastName.toLowerCase() > b.lastName.toLowerCase()) {
+        console.log("1");
+        return 1;
+      }
+      console.log("0");
+      return 0;
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      <PhoneBookForm addContact={addContact} />
+      <InformationTable sortedContacts={sortedContacts(contacts)} />
+    </section>
   );
 }
 
