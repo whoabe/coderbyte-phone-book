@@ -5,7 +5,9 @@ import InformationTable from "./InformationTable";
 
 function App() {
   const initialContacts = [
-    { firstName: "Coder", lastName: "Byte", phone: 8885559999, id: 0 },
+    { firstName: "Abe", lastName: "Lincoln", phone: 1111111111, id: 0 },
+    { firstName: "Teddy", lastName: "Roosevelt", phone: 3333333333, id: 2 },
+    { firstName: "George", lastName: "Washington", phone: 2222222222, id: 1 },
   ];
   const [contacts, setContacts] = useState(initialContacts);
 
@@ -14,25 +16,10 @@ function App() {
     setContacts([...contacts, contact]);
   };
 
-  const sortedContacts = (contacts) => {
-    return contacts.sort(function (a, b) {
-      if (a.lastName.toLowerCase() < b.lastName.toLowerCase()) {
-        console.log("-1");
-        return -1;
-      }
-      if (a.lastName.toLowerCase() > b.lastName.toLowerCase()) {
-        console.log("1");
-        return 1;
-      }
-      console.log("0");
-      return 0;
-    });
-  };
-
   return (
     <section>
       <PhoneBookForm addContact={addContact} />
-      <InformationTable sortedContacts={sortedContacts(contacts)} />
+      <InformationTable contacts={contacts} />
     </section>
   );
 }

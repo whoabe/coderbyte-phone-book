@@ -14,6 +14,35 @@
   min-width: 150px;
 }
 
+.tableHeader {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sortDirection {
+  display: inline-flex;
+  cursor: pointer;
+  margin-left: 10px;
+  flex-direction: column;
+}
+.arrowUp {
+  height: 0;
+  width: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #999;
+}
+.arrowDown {
+  height: 0;
+  width: 0;
+  margin-top: 2px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #999;
+}
+
 .form .container {
   padding: 20px;
   border: 1px solid #f0f8ff;

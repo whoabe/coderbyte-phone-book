@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const PhoneBookForm = ({ sortedContacts, addContact }) => {
+const PhoneBookForm = ({ addContact }) => {
   const initialFormState = {
     id: null,
     firstName: "",
